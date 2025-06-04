@@ -1,0 +1,1176 @@
+/* RESET BÁSICO E FONTES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Usar Poppins para o corpo do texto e Montserrat para títulos */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    color: white;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+    display: flex; /* Flexbox para organizar as seções verticvalmente */
+    flex-direction: column;
+}
+
+/* CONTAINER GERAL */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* HEADER E NAVEGAÇÃO */
+.header-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20; /* Garante que o header esteja acima dos elementos flutuantes */
+}
+
+.logo svg {
+    width: 120px; /* Tamanho da logo no header */
+    height: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #FFD700;
+}
+
+/* HERO SECTION */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Conteúdo principal do hero em coluna */
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden; /* Para garantir que os elementos flutuantes não saiam */
+    text-align: center; /* Centraliza o texto por padrão em telas menores */
+}
+
+.hero-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 40px; /* Espaço entre o texto e a imagem */
+    max-width: 1200px;
+    width: 100%;
+    margin: 80px auto 0; /* Espaço para o header */
+    z-index: 5;
+    padding: 20px;
+}
+
+.content-left {
+    flex: 1;
+    min-width: 300px; /* Garante que não fique muito pequeno */
+    max-width: 600px; /* Limita a largura para o texto não esticar demais */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px; /* Garante que a imagem não fique muito pequena */
+    max-width: 450px; /* Limita o tamanho máximo do escudo */
+}
+
+.main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.5rem, 4.5vw, 3.8rem); /* Font-size responsivo */
+    font-weight: 900; /* Extra bold */
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #FFD700;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    margin-bottom: 40px;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.scroll-arrow {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #FFD700;
+    border-bottom: 2px solid #FFD700;
+    transform: rotate(45deg);
+    margin-top: -3px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.invictus-shield {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+}
+
+.shield-inner {
+    width: 360px;
+    height: 360px;
+    background: linear-gradient(45deg, #1a1a1a, #2c2c2c);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.shield-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.shield-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #FFD700;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.star {
+    width: 15px;
+    height: 15px;
+    background: #FFD700;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.background-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 165, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1; /* Abaixo do conteúdo principal */
+}
+
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2; /* Acima do background-pattern, mas abaixo do conteúdo */
+}
+
+.floating-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0.1;
+    animation: floatRandom 8s ease-in-out infinite;
+}
+
+.floating-icon.circle {
+    border-radius: 50%;
+}
+
+.floating-icon.square {
+    transform: rotate(45deg);
+}
+
+.floating-icon.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.floating-icon:nth-child(1) {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.floating-icon:nth-child(2) {
+    top: 60%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.floating-icon:nth-child(3) {
+    top: 30%;
+    right: 20%;
+    animation-delay: 4s;
+}
+
+.floating-icon:nth-child(4) {
+    top: 70%;
+    right: 15%;
+    animation-delay: 6s;
+}
+
+@keyframes floatRandom {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(-10px) translateX(-10px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(-30px) translateX(5px) rotate(270deg);
+    }
+}
+
+.chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite; /* Mantém a animação para o widget */
+}
+
+.chat-widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+}
+
+/* BENEFITS SECTION */
+.benefits-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    color: white; /* Garante que o texto seja branco */
+}
+
+.benefits-section .section-title {
+    color: white; /* Força o título a ser branco */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 60px;
+    line-height: 1.1;
+}
+
+.subtitle-text {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 600;
+    opacity: 0.9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo */
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    padding: 40px;
+    border-radius: 20px;
+    color: #000;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    display: flex; /* Flexbox para alinhar conteúdo */
+    flex-direction: column;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 25px;
+    color: #000;
+    display: block; /* Para garantir que o SVG ocupe o espaço */
+}
+
+.benefit-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.benefit-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.benefit-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+    flex-grow: 1; /* Permite que o texto cresça e empurre o CTA para baixo */
+}
+
+.benefit-description strong {
+    color: #000;
+    font-weight: 700;
+}
+
+.benefit-cta {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    margin-top: 15px;
+}
+
+.benefit-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.video-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.play-button svg {
+    width: 30px;
+    height: 30px;
+    fill: #000;
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: white;
+}
+
+.video-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 0;
+    font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* UNITS SECTION */
+.units-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    color: white;
+}
+
+.unit-gallery-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.units-section h1 { /* Específico para o h1 da seção de unidades */
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    text-align: left; /* Alinha o título à esquerda */
+}
+
+.content-section {
+    flex: 1;
+    min-width: 300px; /* Garante que o conteúdo não fique muito pequeno */
+    animation: slideInLeft 1s ease-out;
+}
+
+.image-section {
+    flex: 1;
+    min-width: 300px; /* Garante que a imagem não fique muito pequena */
+    position: relative;
+    animation: slideInRight 1s ease-out;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    max-width: 600px; /* Limita o tamanho do grid de imagens */
+    margin: 0 auto; /* Centraliza o grid de imagens */
+}
+
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    transform: perspective(1000px) rotateY(-5deg); /* Aplica a transformação aqui */
+}
+
+.gallery-image:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-image:nth-child(1) { animation: fadeInScale 0.8s ease-out 0.2s both; }
+.gallery-image:nth-child(2) { animation: fadeInScale 0.8s ease-out 0.4s both; }
+.gallery-image:nth-child(3) { animation: fadeInScale 0.8s ease-out 0.6s both; }
+.gallery-image:nth-child(4) { animation: fadeInScale 0.8s ease-out 0.8s both; }
+
+.unit {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.unit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: 0; /* Garante que o pseudo-elemento esteja atrás do conteúdo */
+}
+
+.unit:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.unit:hover::before {
+    left: 100%;
+}
+
+.unit-name {
+    color: #ffd700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.unit-address {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.unit-contact {
+    color: #c0c0c0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* CTA BUTTON (General - will apply to both sections unless overridden) */
+.cta-button {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #1a1a1a;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* FAQ SECTION */
+.faq-section {
+    padding: 100px 0;
+    background: #f8f9fa; /* Fundo mais claro para contraste */
+    color: #333; /* Cor de texto mais escura para contraste */
+}
+
+.faq-section .container {
+    max-width: 800px; /* Container mais estreito para o FAQ */
+    padding: 40px 20px;
+}
+
+.faq-section .section-title {
+    color: #1a1a1a; /* Título escuro para o FAQ */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.faq-item {
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.faq-question {
+    padding: 20px 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600; /* Um pouco mais de peso */
+    color: #495057;
+    transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.faq-question:hover {
+    color: #343a40;
+}
+
+.faq-arrow {
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #6c757d;
+    border-bottom: 2px solid #6c757d;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(-135deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out; /* Adicionado ease-in-out */
+    padding: 0 25px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Ajuste conforme o conteúdo máximo esperado */
+    padding: 0 25px 20px 25px;
+}
+
+.faq-answer p {
+    color: #6c757d;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FOOTER */
+.footer {
+    background: #1a1a1a; /* Fundo escuro para o rodapé */
+    padding: 40px 0;
+    text-align: center;
+    margin-top: auto; /* Empurra o rodapé para baixo */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo-container .logo { /* Específico para o logo do footer para evitar conflito com o do hero */
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    border-radius: 8px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-icon::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ffd700;
+    border-radius: 50%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 0; /* Já centralizado no footer-content */
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    background: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #ffd700;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+.social-icon.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-icon.facebook { background: #1877f2; }
+.social-icon.whatsapp { background: #25d366; }
+
+.contact-button {
+    background: #333;
+    color: #ffd700;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-button:hover {
+    background: #ffd700;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+.contact-button .button-icon { /* Usar uma classe para o ícone do botão */
+    font-size: 18px;
+}
+
+/* Animações (mantidas e ajustadas para as novas classes) */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsividade Geral */
+@media (max-width: 1024px) {
+    .hero-content-wrapper {
+        flex-direction: column;
+        margin-top: 100px;
+    }
+
+    .content-left, .hero-image-container {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .content-left {
+        order: 2; /* Move o texto para baixo da imagem no mobile */
+    }
+
+    .hero-image-container {
+        order: 1; /* Move a imagem para cima do texto no mobile */
+        margin-bottom: 40px;
+    }
+
+    .invictus-shield {
+        width: 350px;
+        height: 350px;
+    }
+
+    .shield-inner {
+        width: 310px;
+        height: 310px;
+    }
+
+    .main-nav ul {
+        gap: 15px;
+    }
+
+    .unit-gallery-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .gallery-container {
+        max-width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-image {
+        height: 180px;
+    }
+
+    .content-section, .image-section {
+        min-width: unset; /* Remove min-width para não forçar em telas menores */
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+    .main-nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav ul li {
+        margin-bottom: 5px;
+    }
+
+    .hero-section {
+        padding: 100px 3% 50px;
+    }
+
+    .hero-content-wrapper {
+        margin-top: 40px;
+    }
+
+    .main-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+
+    .invictus-shield {
+        width: 300px;
+        height: 300px;
+        margin-top: 30px;
+    }
+
+    .shield-inner {
+        width: 270px;
+        height: 270px;
+    }
+
+    .shield-logo {
+        font-size: 2rem;
+    }
+
+    .chat-widget {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Benefits Mobile */
+    .benefits-section, .units-section, .faq-section {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .subtitle-text {
+        font-size: 1.2rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .benefit-card {
+        padding: 30px;
+    }
+
+    .benefit-title {
+        font-size: 1.5rem;
+    }
+
+    /* Units Mobile */
+    .units-section h1 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        text-align: center; /* Centraliza o título no mobile */
+    }
+
+    .unit {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .unit-name {
+        font-size: 1.2rem;
+    }
+
+    .unit-address {
+        font-size: 1rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-image {
+        height: 220px;
+    }
+
+    /* FAQ Mobile */
+    .faq-question {
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    .faq-answer {
+        padding: 0 20px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 20px 15px 20px;
+    }
+
+    /* Footer Mobile */
+    .social-icons {
+        gap: 15px;
+    }
+
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8rem; /* Ainda menor em telas muito pequenas */
+    }
+    .hero-image-container {
+        margin-top: 20px;
+    }
+    .invictus-shield {
+        width: 250px;
+        height: 250px;
+    }
+    .shield-inner {
+        width: 220px;
+        height: 220px;
+    }
+    .shield-logo {
+        font-size: 1.8rem;
+    }
+    .hero-section {
+        padding: 80px 3% 40px;
+    }
+
+    /* Benefits Mobile Small */
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .subtitle-text {
+        font-size: 1rem;
+    }
+
+    .benefit-card {
+        padding: 25px;
+    }
+
+    .benefit-title {
+        font-size: 1.3rem;
+    }
+
+    .benefit-description {
+        font-size: 0.9rem;
+    }
+
+    /* Units Mobile Small */
+    .units-section h1 {
+        font-size: 1.8rem;
+    }
+    .unit-name {
+        font-size: 1.1rem;
+    }
+    .unit-address {
+        font-size: 0.95rem;
+    }
+    .unit-contact {
+        font-size: 0.9rem;
+    }
+    .gallery-image {
+        height: 180px; /* Ajuste para telas muito pequenas */
+    }
+}
+
+/* Efeito de partículas (mantido, mas com z-index ajustado) */
+/* Este estilo está no CSS para o container, mas o z-index é crucial */
+/* .container::before { ... } (Já está no .units-section .container::before) */
+/* CUIDADO: O código original tinha este seletor global para .container.
+   Se a intenção é ter esse efeito APENAS na seção de unidades, o seletor deve ser mais específico.
+   Se for para todas as seções com .container, então o estilo global está ok,
+   mas precisa estar no início do CSS, não duplicado.
+   Mantive-o abaixo, mas com um comentário para você considerar a abrangência.
+*/
+
+/* --- REFLITA: Se este efeito é para todos os containers, mantenha-o aqui e remova a duplicação.
+   Se for APENAS para a seção de unidades, mova-o para dentro de .units-section .container::before --- */
+/*
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(103, 126, 234, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+*/
+/* Removi a duplicação do .container::before, pois já existe um similar para o hero-section.
+   Se você quiser um efeito de partículas em *todas* as seções com .container, me avise para adicioná-lo de forma mais global.
+   Por enquanto, assumi que era parte do background do hero ou de seções específicas. */
